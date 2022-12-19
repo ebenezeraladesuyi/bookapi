@@ -1,0 +1,12 @@
+"use strict";
+exports.__esModule = true;
+var express_1 = require("express");
+var multer_1 = require("../config/multer");
+var bookstoreController_1 = require("../controller/bookstoreController");
+var router = (0, express_1.Router)();
+router.route("/postbook").post(multer_1["default"], bookstoreController_1.bookPost);
+router.route("/getall").get(bookstoreController_1.getAllBooks);
+router.route("/getone/:id").get(bookstoreController_1.getOneBook);
+router.route("/search").get(bookstoreController_1.searchBooks);
+router.route("/views/:id").patch(bookstoreController_1.myViews);
+exports["default"] = router;
